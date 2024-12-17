@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="warning">
+    <!-- Botón para regresar -->
+    <ion-buttons slot="start">
+      <ion-button routerLink="/tabs/tab1">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title>Mi Perfil</ion-title>
+
+    <!-- Menú -->
+    <ion-buttons slot="end">
+      <ion-button (click)="mostrarMenu()">
+        <ion-icon slot="start" name="menu-outline" size="large"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="profile-container">
+    <!-- Imagen de perfil -->
+    <img [src]="usuario?.profilePicture" alt="Foto de perfil" class="profile-picture" />
+
+    <!-- Nombre de usuario -->
+    <h2 class="username">{{ usuario?.username }}</h2>
+
+    <!-- Botón para editar perfil -->
+    <ion-button expand="full" color="primary" (click)="editarPerfil()">Editar Perfil</ion-button>
+  </div>
+</ion-content>

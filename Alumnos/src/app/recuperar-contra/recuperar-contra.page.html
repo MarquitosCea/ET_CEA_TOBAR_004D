@@ -1,0 +1,28 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Recuperar Contraseña</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="regresar()">Regresar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form #recoverForm="ngForm" (ngSubmit)="recoverPassword()">
+    <ion-item>
+      <ion-input 
+        placeholder="Username" 
+        name="username" 
+        [(ngModel)]="username" 
+        required>
+      </ion-input>
+    </ion-item>
+
+    <!-- Validación del formulario -->
+    <ion-text color="danger" *ngIf="recoverForm.controls?.['username']?.invalid && recoverForm.controls?.['username']?.touched">
+      El nombre de usuario es requerido.
+    </ion-text>
+
+    <ion-button type="submit" [disabled]="!recoverForm.valid">Enviar</ion-button>
+  </form>
+</ion-content>

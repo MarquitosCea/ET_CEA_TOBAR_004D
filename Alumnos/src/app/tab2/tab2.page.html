@@ -1,0 +1,43 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="warning">
+    <ion-buttons slot="start">
+      <ion-button routerLink="/tabs/tab1">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Justificación de Asistencia</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="form-container">
+    <form>
+
+      <ion-item>
+      <ion-input type="text" placeholder="Ingrese nombre" label="username"
+              labelPlacement="floating" name="username" [(ngModel)]="justificativo.username"></ion-input>
+      </ion-item>
+
+      <ion-item>
+      <ion-input type="text" placeholder="Ingrese sección" label="sección"
+              labelPlacement="floating" name="id" [(ngModel)]="justificativo.id"></ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-input type="text" placeholder="Ingrese su Clase" label="Clase"
+             labelPlacement="floating" name="title" [(ngModel)]="justificativo.clase"></ion-input>
+      </ion-item>
+  
+     <ion-item>
+      <ion-input type="text" placeholder="Ingrese Justificación" label="Justificación"
+           labelPlacement="floating" name="body" [(ngModel)]="justificativo.body"></ion-input>
+     </ion-item>
+  
+    <div style="text-align: center; margin-top:30px;">
+      <ion-button (click)="CrearJustificacion()" shape="round" color="success">
+        Mandar Justificación
+      </ion-button>
+    </div>
+  </form>
+</div>
+</ion-content>

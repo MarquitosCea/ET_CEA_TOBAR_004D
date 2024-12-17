@@ -1,0 +1,87 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="success">
+    <ion-title>Inicio de Sesión</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+ 
+ 
+  <form [formGroup]="loginForm">
+    <ion-item>
+      <ion-input type="text" placeholder="ingrese su nombre de usuario" label="Usuario:" labelPlacement="floating"
+          formControlName="username">
+      </ion-input>
+    </ion-item>
+
+      <div id="alerta" *ngIf="loginForm.get('username')?.invalid && (loginForm.get('username')?.dirty || 
+                  loginForm.get('username')?.touched)">
+        <div id="alerta" *ngIf="loginForm.get('username')?.hasError('required')">
+          *El usuario es obligatorio*
+        </div>
+        <div id="alerta" *ngIf="loginForm.get('username')?.hasError('minlength')">
+          *El usuario debe tener mínimo 6 caracteres*
+        </div>
+      </div>
+
+    <ion-item>
+      <ion-input type="password" placeholder="ingrese su contraseña" label="Contraseña:" labelPlacement="floating"
+          formControlName="password">
+      </ion-input>
+    </ion-item>
+
+    <div id="alerta" *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty || 
+                loginForm.get('password')?.touched)">
+      <div id="alerta" *ngIf="loginForm.get('password')?.hasError('required')">
+        *La contraseña es obligatoria*
+      </div>
+      <div id="alerta" *ngIf="loginForm.get('password')?.hasError('minlength')">
+        *La contraseña debe tener mínimo 8 caracteres*
+      </div>
+    </div>
+
+
+    <div style="text-align: center; margin-top:30px">
+      <ion-button (click)="login()" [disabled]="!loginForm.valid" shape="round" color="primary">
+        Iniciar Sesión
+      </ion-button> 
+    </div>
+    <div style="text-align: center;">
+      <ion-button (click)="Registrar()"  fill="clear" shape="round">
+        Registrate Aqui
+      </ion-button>
+    </div>
+    
+    <div style="text-align: center; margin-top: 10px;">
+      <ion-button (click)="navegarARecuperar()" fill="clear">
+        Recuperar Contraseña
+      </ion-button>
+    </div>
+  </form>
+
+</ion-content>
+
+
+<ion-footer>
+  <ion-toolbar color="success">
+    <ion-title id="letra">My Duoc2024</ion-title>
+
+    <ion-buttons slot="end">
+
+      <ion-button fill="clear">
+        <ion-icon name="logo-instagram"></ion-icon>
+      </ion-button>
+
+      <ion-button fill="clear">
+        <ion-icon name="logo-facebook"></ion-icon>
+      </ion-button>
+
+      <ion-button fill="clear">
+        <ion-icon name="logo-twitter"></ion-icon>
+      </ion-button>
+
+    </ion-buttons>
+    
+
+  </ion-toolbar>
+</ion-footer>

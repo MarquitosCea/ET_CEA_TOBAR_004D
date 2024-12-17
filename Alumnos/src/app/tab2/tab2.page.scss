@@ -1,0 +1,21 @@
+.form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  form {
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .justificativos-container {
+    margin-top: 20px;
+  }
+  
+  ion-item {
+    margin-bottom: 15px;
+  }
+  
