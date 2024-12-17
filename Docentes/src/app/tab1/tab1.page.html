@@ -1,0 +1,75 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="warning">
+    <ion-buttons slot="end">
+      <ion-button (click)="mostrarMenu()">
+        <ion-icon slot="start" name="menu-outline" size="large"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      Registro de Clases
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Registro de Clases</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+
+  <swiper-container
+  style="margin: 20px auto; padding-left: 15px; padding-right: 15px; height: 200px;"
+  (afterinit)="swiperReady()"
+  (slidechange)="swiperSlideChanged($event)"
+  [loop]="true"
+  [pagination]="{ clickeable: true }"
+  [navigation]="true">
+    <swiper-slide *ngFor="let image of images">
+      <img [src]="image" style="width: 100%; height: auto;">
+    </swiper-slide>
+
+
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+
+  <div class="swiper-pagination"></div>
+  </swiper-container>
+
+
+  <div style="text-align: center;">
+    <ion-button (click)="CargarApi()"  shape="round" color="success" style="margin-top:20px">
+      Visualizar clases disponibles
+    </ion-button>   
+  </div>
+  
+  <ion-card *ngFor="let c of clases">
+    <ion-card-header>
+      <ion-card-subtitle>Sección: {{c.id}}</ion-card-subtitle>
+      <ion-card-title>Clase: {{c.title}}</ion-card-title>
+    </ion-card-header>
+
+
+    <ion-card-content>
+      <p>
+        {{c.body}}
+      </p>
+      <ion-button (click)="abrirCamara()" shape="round" color="primary">
+        Registrar Asistencia
+      </ion-button>
+    </ion-card-content>
+
+    <ion-button (click)="consultaElimina()" shape="round" color="danger">
+      Eliminar Clase
+    </ion-button>
+  </ion-card>
+
+
+  <div style="text-align: center; margin-top: 30px;">
+    <ion-button (click)="agregarClase()" shape="round" color="warning">
+      Agregar nueva Clase
+    </ion-button>
+  </div>
+</ion-content>

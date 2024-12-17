@@ -1,0 +1,37 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="warning">
+    <ion-buttons slot="end">
+      <ion-button (click)="mostrarMenu()">
+        <ion-icon slot="start" name="menu-outline" size="large"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      Justificación de Asistencia
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <!-- Mensaje fijo cuando no hay justificativos -->
+  <div *ngIf="justificativos.length === 0" class="no-justificativos">
+    <p><strong>¡No hay justificativos por revisar!</strong></p>
+  </div>
+
+  <!-- Mostrar la lista de justificativos -->
+  <ion-card *ngFor="let justificativo of justificativos">
+    <ion-card-header>
+      <ion-card-title>{{ justificativo.username }}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p>Clase: {{ justificativo.clases }}</p>
+      <p>Descripcion: {{ justificativo.body }}</p>
+
+      <!-- Botones para aceptar y rechazar -->
+      <ion-button (click)="handleAction(justificativo, 'accept')">Aceptar</ion-button>
+      <ion-button color="danger" (click)="handleAction(justificativo, 'reject')">Rechazar</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
